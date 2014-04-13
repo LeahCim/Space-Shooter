@@ -1,0 +1,13 @@
+# =============== #
+# Unity generated #
+# =============== #
+Temp/
+Library/
+Builds/
+
+# ===================================== #
+# Visual Studio / MonoDevelop generated #
+# ===================================== #
+*.userprefs
+*.csproj
+*.sln
