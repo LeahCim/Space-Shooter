@@ -6,6 +6,8 @@
 *.meta text eol=lf
 *.prefab text eol=lf
 *.unity text eol=lf
+*.mat text eol=lf
+*.cubemap text eol=lf
 
 # Custom for Visual Studio
 *.cs     diff=csharp
