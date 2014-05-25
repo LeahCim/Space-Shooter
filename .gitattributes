@@ -9,6 +9,8 @@
 *.mat text eol=lf
 *.cubemap text eol=lf
 
+*.cs text eol=lf
+
 # Custom for Visual Studio
 *.cs     diff=csharp
 *.sln    merge=union
