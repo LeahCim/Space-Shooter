@@ -1,10 +1,16 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+[System.Serializable]
+public class Boundary
+{
+	public float xMin, xMax, zMin, zMax;
+}
+
 public class PlayerController : MonoBehaviour
 {
 	public int speed;
-	public float xMin, xMax, zMin, zMax;
+	public Boundary boundary;
 
 	void FixedUpdate ()
 	{
@@ -16,9 +22,9 @@ public class PlayerController : MonoBehaviour
 
 		rigidbody.position = new Vector3
 		(
-			Mathf.Clamp(rigidbody.position.x, xMin, xMax),
+			Mathf.Clamp(rigidbody.position.x, boundary.xMin, boundary.xMax),
 			0,
-			Mathf.Clamp(rigidbody.position.z, zMin, zMax)
+			Mathf.Clamp(rigidbody.position.z, boundary.zMin, boundary.zMax)
 		);
 	}
 }

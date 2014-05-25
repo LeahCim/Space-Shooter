@@ -247,10 +247,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10
-  xMin: -6
-  xMax: 6
-  zMin: -4
-  zMax: 14
+  boundary:
+    xMin: -6
+    xMax: 6
+    zMin: -4
+    zMax: 8
 --- !u!1 &916299839
 GameObject:
   m_ObjectHideFlags: 0
