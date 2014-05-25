@@ -3,7 +3,8 @@ using System.Collections;
 
 public class PlayerController : MonoBehaviour
 {
-	public float speed;
+	public int speed;
+	public float xMin, xMax, zMin, zMax;
 
 	void FixedUpdate ()
 	{
@@ -12,5 +13,12 @@ public class PlayerController : MonoBehaviour
 
 		Vector3 movement = new Vector3(moveHorizontal, 0, moveVertical);
 		rigidbody.velocity = movement * speed;
+
+		rigidbody.position = new Vector3
+		(
+			Mathf.Clamp(rigidbody.position.x, xMin, xMax),
+			0,
+			Mathf.Clamp(rigidbody.position.z, zMin, zMax)
+		);
 	}
 }
