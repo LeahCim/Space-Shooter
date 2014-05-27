@@ -290,6 +290,7 @@ MonoBehaviour:
   spawnWait: .5
   startWait: 1
   waveWait: 2
+  scoreText: {fileID: 15488424}
 --- !u!82 &375023035
 AudioSource:
   m_ObjectHideFlags: 0
