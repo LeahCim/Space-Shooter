@@ -238,6 +238,7 @@ MonoBehaviour:
   hazardCount: 10
   spawnWait: .5
   startWait: 1
+  waveWait: 2
 --- !u!1 &726476450
 GameObject:
   m_ObjectHideFlags: 0
