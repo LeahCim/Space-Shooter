@@ -234,7 +234,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hazard: {fileID: 100002, guid: 683df649f881ef545ac0432f37ecdac8, type: 2}
-  spawnValues: {x: 0, y: 0, z: 0}
+  spawnValues: {x: 6, y: 0, z: 16}
 --- !u!1 &726476450
 GameObject:
   m_ObjectHideFlags: 0
