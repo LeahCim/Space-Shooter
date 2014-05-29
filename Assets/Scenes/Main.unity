@@ -164,6 +164,7 @@ GameObject:
   - 33: {fileID: 161764308}
   - 23: {fileID: 161764307}
   - 54: {fileID: 161764310}
+  - 135: {fileID: 161764311}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -228,6 +229,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!135 &161764311
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 161764306}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: .748005688
+  m_Center: {x: 5.68434189e-14, y: -.0117364526, z: .35712111}
 --- !u!1 &222426004
 GameObject:
   m_ObjectHideFlags: 0
