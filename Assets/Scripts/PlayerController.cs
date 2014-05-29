@@ -17,6 +17,8 @@ public class PlayerController : MonoBehaviour
 	public Transform shotSpawn;
 	public float fireRate = 0.5F;
 
+	public GameController gameController;
+
 	private float nextFire = 0.0F;
 
 	void Update ()
@@ -45,5 +47,9 @@ public class PlayerController : MonoBehaviour
 		);
 
 		rigidbody.rotation = Quaternion.Euler(0, 0, rigidbody.velocity.x * -tilt);
+	}
+
+	void OnDestroy() {
+		gameController.GameOver();
 	}
 }
