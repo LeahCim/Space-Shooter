@@ -22,8 +22,7 @@ public class DestroyByContact : MonoBehaviour {
 	}
 
 	void OnTriggerEnter(Collider other) {
-		if(other.tag == "Boundary" || other.tag == "ProximitySensor" ||
-		   other.tag == "Unarmed")
+		if(other.tag == "Boundary" || other.tag == "ProximitySensor")
 		{
 			return;
 		}
