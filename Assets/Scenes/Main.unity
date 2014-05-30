@@ -418,7 +418,8 @@ MonoBehaviour:
   enemyChance: .300000012
   spawnValues: {x: 6, y: 0, z: 16}
   hazardCount: 10
-  spawnWait: .300000012
+  asteroidSpawnWait: .300000012
+  enemySpawnWait: 1
   startWait: 1
   waveWait: 2
   scoreText: {fileID: 15488424}

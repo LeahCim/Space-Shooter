@@ -26,6 +26,14 @@ public class DestroyByContact : MonoBehaviour {
 		{
 			return;
 		}
+		if(gameObject.tag == "Enemy")
+		{
+			EnemyController enemyController = gameObject.GetComponent <EnemyController>();
+			if(enemyController != null && enemyController.OwnShot(other.gameObject))
+			{
+				return;
+			}
+		}
 		if(other.tag == "Bolt")
 		{
 			gameController.AddScore(scoreValue);

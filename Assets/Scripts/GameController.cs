@@ -9,7 +9,8 @@ public class GameController : MonoBehaviour {
 
 	public Vector3 spawnValues;
 	public int hazardCount;
-	public float spawnWait;
+	public float asteroidSpawnWait;
+	public float enemySpawnWait;
 	public float startWait;
 	public float waveWait;
 
@@ -49,6 +50,7 @@ public class GameController : MonoBehaviour {
 	IEnumerator SpawnWaves ()
 	{
 		yield return new WaitForSeconds(startWait);
+		float spawnWait = 0;
 		while(true)
 		{
 			for(int i = 0; i < hazardCount; i++)
@@ -64,10 +66,12 @@ public class GameController : MonoBehaviour {
 				if(Random.value < enemyChance)
 				{
 					hazard = enemy;
+					spawnWait = enemySpawnWait;
 				}
 				else
 				{
 					hazard = asteroid;
+					spawnWait = asteroidSpawnWait;
 				}
 				Instantiate(hazard, spawnPosition, spawnRotation);
 				yield return new WaitForSeconds(spawnWait);

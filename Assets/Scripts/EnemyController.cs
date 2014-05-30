@@ -8,12 +8,15 @@ public class EnemyController : MonoBehaviour
 	public Boundary boundary;
 	public float tilt;
 	public float randomMoveDelay;
+	public float randomMoveDistance;
 
 	public GameObject shot;
 	public Transform shotSpawn;
 	public float fireRate;
+	public float targetDistX;
 
 	private GameObject player;
+	private GameObject lastShot;
 	private float nextRandomMove = 0;
 	private float nextFire = 0.0F;
 
@@ -28,19 +31,27 @@ public class EnemyController : MonoBehaviour
 
 	void Update ()
 	{
-		if (Time.time > nextFire && transform.position.z < boundary.zMax - 5)
-		{
-			nextFire = Time.time + fireRate;
-			Instantiate(shot, shotSpawn.position, shotSpawn.rotation);
-			audio.Play();
-		}
 	}
 
 	void FixedUpdate ()
 	{
 		if(proximitySensor.triggered) {
-			Vector3 escapeRoute = transform.position - proximitySensor.otherPosition;
-			rigidbody.velocity = escapeRoute.normalized * speed;
+			float xDistance = Mathf.Abs
+				(
+					proximitySensor.obstaclePos.x - transform.position.x
+				);
+			if(proximitySensor.obstacle != null &&
+			   proximitySensor.obstacle.tag != "Enemy" &&
+			   xDistance < targetDistX &&
+			   proximitySensor.obstaclePos.z < transform.position.z)
+			{
+				Fire();
+			}
+			else
+			{
+				Vector3 escapeRoute = transform.position - proximitySensor.obstaclePos;
+				rigidbody.velocity = escapeRoute.normalized * speed;
+			}
 		}
 		else
 		{
@@ -50,7 +61,7 @@ public class EnemyController : MonoBehaviour
 		if(Time.time > nextRandomMove)
 		{
 			nextRandomMove = Time.time + randomMoveDelay;
-			rigidbody.velocity += Random.insideUnitSphere;
+			rigidbody.velocity += Random.insideUnitSphere * randomMoveDistance;
 		}
 
 		rigidbody.position = new Vector3
@@ -78,5 +89,20 @@ public class EnemyController : MonoBehaviour
 					);
 			}
 		}
+	}
+
+	void Fire()
+	{
+		if (Time.time > nextFire && transform.position.z < boundary.zMax - 10)
+		{
+			nextFire = Time.time + fireRate;
+			lastShot = Instantiate(shot, shotSpawn.position, shotSpawn.rotation) as GameObject;
+			audio.Play();
+		}
+	}
+
+	public bool OwnShot(GameObject shot)
+	{
+		return shot.GetInstanceID() == lastShot.GetInstanceID();
 	}
 }
