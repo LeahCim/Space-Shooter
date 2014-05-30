@@ -4,7 +4,7 @@
 TagManager:
   tags:
   - Boundary
-  - 
+  - ProximitySensor
   - Enemy
   - 
   Builtin Layer 0: Default
