@@ -30,7 +30,7 @@ GameObject:
   - 114: {fileID: 11400000}
   - 114: {fileID: 11400002}
   m_Layer: 0
-  m_Name: Bolt
+  m_Name: EnemyBolt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -71,7 +71,7 @@ Renderer:
   m_LightmapIndex: 255
   m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:
-  - {fileID: 2100000, guid: aa8322a3767a344b98d51048b8fe505a, type: 2}
+  - {fileID: 2100000, guid: f1ed336a9b8345c409f3770bcc59921e, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 0
@@ -122,11 +122,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 100002}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9e6383922258db745bd4efbae1e089cb, type: 3}
+  m_Script: {fileID: 11500000, guid: b6abe3f3b1a271e4cb5fad1297f7ad43, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  explosion: {fileID: 0}
-  scoreValue: 0
 --- !u!136 &13600000
 CapsuleCollider:
   m_ObjectHideFlags: 1

@@ -22,12 +22,16 @@ public class DestroyByContact : MonoBehaviour {
 	}
 
 	void OnTriggerEnter(Collider other) {
-		if(other.tag == "Boundary" || other.tag == "ProximitySensor")
+		if(other.tag == "Boundary" || other.tag == "ProximitySensor" ||
+		   other.tag == "Unarmed")
 		{
 			return;
 		}
-		gameController.AddScore(scoreValue);
-		Instantiate(explosion, transform.position, transform.rotation);
+		if(tag != "Bolt" && tag != "EnemyBolt" && explosion != null)
+		{
+			gameController.AddScore(scoreValue);
+			Instantiate(explosion, transform.position, transform.rotation);
+		}
 		Destroy (gameObject);
 	}
 }

@@ -3,7 +3,10 @@ using System.Collections;
 
 public class GameController : MonoBehaviour {
 
-	public GameObject hazard;
+	public GameObject asteroid;
+	public GameObject enemy;
+	public float enemyChance;
+
 	public Vector3 spawnValues;
 	public int hazardCount;
 	public float spawnWait;
@@ -14,6 +17,7 @@ public class GameController : MonoBehaviour {
 	public GUIText gameOverText;
 	public GUIText restartText;
 
+	private GameObject hazard;
 	private int score;
 	private bool gameOver;
 	private bool restart;
@@ -57,6 +61,14 @@ public class GameController : MonoBehaviour {
 					);
 				Quaternion spawnRotation = Quaternion.identity;
 
+				if(Random.value < enemyChance)
+				{
+					hazard = enemy;
+				}
+				else
+				{
+					hazard = asteroid;
+				}
 				Instantiate(hazard, spawnPosition, spawnRotation);
 				yield return new WaitForSeconds(spawnWait);
 			}
