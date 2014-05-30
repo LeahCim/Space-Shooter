@@ -238,7 +238,7 @@ MonoBehaviour:
     zMin: -20
     zMax: 16
   tilt: 3
-  randomMoveDelay: 1
+  randomMoveDelay: .5
   randomMoveDistance: 2
   shot: {fileID: 100002, guid: e566c127c076c4a469018cabe30e8800, type: 2}
   shotSpawn: {fileID: 400000}

@@ -31,6 +31,18 @@ public class EnemyController : MonoBehaviour
 
 	void Update ()
 	{
+		if(player != null)
+		{
+			float xDistance = Mathf.Abs
+				( 
+					player.transform.position.x - transform.position.x
+				);
+			if(xDistance < targetDistX &&
+			   player.transform.position.z < transform.position.z)
+			{
+				Fire();
+			}
+		}
 	}
 
 	void FixedUpdate ()
@@ -93,7 +105,7 @@ public class EnemyController : MonoBehaviour
 
 	void Fire()
 	{
-		if (Time.time > nextFire && transform.position.z < boundary.zMax - 10)
+		if (Time.time > nextFire && transform.position.z < boundary.zMax - 3)
 		{
 			nextFire = Time.time + fireRate;
 			lastShot = Instantiate(shot, shotSpawn.position, shotSpawn.rotation) as GameObject;
