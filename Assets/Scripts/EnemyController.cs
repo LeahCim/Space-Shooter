@@ -115,6 +115,10 @@ public class EnemyController : MonoBehaviour
 
 	public bool OwnShot(GameObject shot)
 	{
-		return shot.GetInstanceID() == lastShot.GetInstanceID();
+		if(lastShot != null)
+		{
+			return shot.GetInstanceID() == lastShot.GetInstanceID();
+		}
+		return false;
 	}
 }
