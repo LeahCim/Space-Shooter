@@ -60,7 +60,7 @@ public class EnemyController : MonoBehaviour
 				Mathf.Clamp(rigidbody.position.z, boundary.zMin, boundary.zMax)
 			);
 
-		rigidbody.rotation = Quaternion.Euler(0, 180, rigidbody.velocity.x * -tilt);
+		rigidbody.rotation = Quaternion.Euler(0, 180, rigidbody.velocity.x * tilt);
 	}
 
 	void FollowPlayer ()
