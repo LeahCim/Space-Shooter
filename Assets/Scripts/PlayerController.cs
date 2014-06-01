@@ -49,6 +49,9 @@ public class PlayerController : MonoBehaviour
 	}
 
 	void OnDestroy() {
-		gameController.GameOver();
+		if(gameController != null)
+		{
+			gameController.GameOver();
+		}
 	}
 }
