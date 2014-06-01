@@ -31,39 +31,23 @@ public class EnemyController : MonoBehaviour
 
 	void Update ()
 	{
-		if(player != null)
+		if(player != null && HaveShot(player))
 		{
-			float xDistance = Mathf.Abs
-				( 
-					player.transform.position.x - transform.position.x
-				);
-			if(xDistance < targetDistX &&
-			   player.transform.position.z < transform.position.z)
-			{
-				FireIfReady();
-			}
+			Fire();
 		}
 	}
 
 	void FixedUpdate ()
 	{
-		if(proximitySensor.triggered) {
-			float distanceX = Mathf.Abs
-				(
-					proximitySensor.obstaclePos.x - transform.position.x
-				);
-			if(FireReady() &&
-			   distanceX < targetDistX &&
-			   proximitySensor.obstacle != null &&
-			   proximitySensor.obstacle.tag != "Enemy" &&
-			   proximitySensor.obstaclePos.z < transform.position.z)
+		if(proximitySensor.triggered && proximitySensor.obstacle != null) {
+			if(proximitySensor.obstacle.tag != "Enemy" &&
+			   HaveShot(proximitySensor.obstacle))
 			{
 				Fire();
 			}
 			else
 			{
-				Vector3 escapeRoute = transform.position - proximitySensor.obstaclePos;
-				rigidbody.velocity = escapeRoute.normalized * speed;
+				Avoid(proximitySensor.obstacle);
 			}
 		}
 		else
@@ -103,10 +87,17 @@ public class EnemyController : MonoBehaviour
 			}
 		}
 	}
-
-	bool FireReady()
+	
+	bool HaveShot(GameObject target)
 	{
-		return Time.time > nextFire && transform.position.z < boundary.zMax - 3;
+		float distanceX = Mathf.Abs
+			( 
+				target.transform.position.x - transform.position.x
+			);
+		return Time.time > nextFire &&
+		       distanceX < targetDistX &&
+		       transform.position.z > target.transform.position.z &&
+		       transform.position.z < boundary.zMax - 3;
 	}
 
 	void Fire()
@@ -116,12 +107,10 @@ public class EnemyController : MonoBehaviour
 		audio.Play();
 	}
 
-	void FireIfReady()
+	void Avoid(GameObject obstacle)
 	{
-		if (FireReady())
-		{
-			Fire();
-		}
+		Vector3 escapeRoute = transform.position - obstacle.transform.position;
+		rigidbody.velocity = escapeRoute.normalized * speed;
 	}
 
 	public bool OwnShot(GameObject shot)

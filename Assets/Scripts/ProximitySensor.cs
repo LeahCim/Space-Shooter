@@ -5,7 +5,6 @@ public class ProximitySensor : MonoBehaviour {
 
 	public bool triggered { get; private set; }
 	public GameObject obstacle { get; private set; }
-	public Vector3 obstaclePos { get; private set; }
 
 	void Start () {
 		triggered = false;
@@ -19,11 +18,10 @@ public class ProximitySensor : MonoBehaviour {
 		}
 		triggered = true;
 		obstacle = other.gameObject;
-		obstaclePos = other.transform.position;
 	}
 
 	void OnTriggerExit(Collider other) {
-		if(other.tag == "Boundary" || other.tag == "Enemy" || other.tag == "EnemyBolt")
+		if(other.tag == "EnemyBolt")
 		{
 			return;
 		}
