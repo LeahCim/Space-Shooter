@@ -40,7 +40,7 @@ public class EnemyController : MonoBehaviour
 			if(xDistance < targetDistX &&
 			   player.transform.position.z < transform.position.z)
 			{
-				Fire();
+				FireIfReady();
 			}
 		}
 	}
@@ -48,13 +48,14 @@ public class EnemyController : MonoBehaviour
 	void FixedUpdate ()
 	{
 		if(proximitySensor.triggered) {
-			float xDistance = Mathf.Abs
+			float distanceX = Mathf.Abs
 				(
 					proximitySensor.obstaclePos.x - transform.position.x
 				);
-			if(proximitySensor.obstacle != null &&
+			if(FireReady() &&
+			   distanceX < targetDistX &&
+			   proximitySensor.obstacle != null &&
 			   proximitySensor.obstacle.tag != "Enemy" &&
-			   xDistance < targetDistX &&
 			   proximitySensor.obstaclePos.z < transform.position.z)
 			{
 				Fire();
@@ -103,13 +104,23 @@ public class EnemyController : MonoBehaviour
 		}
 	}
 
+	bool FireReady()
+	{
+		return Time.time > nextFire && transform.position.z < boundary.zMax - 3;
+	}
+
 	void Fire()
 	{
-		if (Time.time > nextFire && transform.position.z < boundary.zMax - 3)
+		nextFire = Time.time + fireRate;
+		lastShot = Instantiate(shot, shotSpawn.position, shotSpawn.rotation) as GameObject;
+		audio.Play();
+	}
+
+	void FireIfReady()
+	{
+		if (FireReady())
 		{
-			nextFire = Time.time + fireRate;
-			lastShot = Instantiate(shot, shotSpawn.position, shotSpawn.rotation) as GameObject;
-			audio.Play();
+			Fire();
 		}
 	}
 
