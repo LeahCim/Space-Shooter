@@ -3,7 +3,9 @@ using System.Collections;
 
 public class GameController : MonoBehaviour {
 
-	public GameObject asteroid;
+	public GameObject asteroid1;
+	public GameObject asteroid2;
+	public GameObject asteroid3;
 	public GameObject purpleEnemy;
 	public GameObject redEnemy;
 	public float enemyChance;
@@ -78,7 +80,19 @@ public class GameController : MonoBehaviour {
 				}
 				else
 				{
-					hazard = asteroid;
+					float rand = Random.value;
+					if(rand < 0.334)
+					{
+						hazard = asteroid1;
+					}
+					else if(rand < 0.667)
+					{
+						hazard = asteroid2;
+					}
+					else
+					{
+						hazard = asteroid3;
+					}
 					spawnWait = asteroidSpawnWait;
 				}
 				Instantiate(hazard, spawnPosition, spawnRotation);

@@ -1723,7 +1723,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1041876f102e5ae4ebf8e32985a5e6ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  asteroid: {fileID: 100002, guid: 683df649f881ef545ac0432f37ecdac8, type: 2}
+  asteroid1: {fileID: 100002, guid: 683df649f881ef545ac0432f37ecdac8, type: 2}
+  asteroid2: {fileID: 100000, guid: f85ca34419d757e44a12702f300e6f0e, type: 2}
+  asteroid3: {fileID: 100000, guid: 9efba78e09867594e8ff62248711c5c0, type: 2}
   purpleEnemy: {fileID: 100004, guid: fc527ef0ba5392041a3a4a07fe1321b2, type: 2}
   redEnemy: {fileID: 100004, guid: f971eeefd90b73e4c98af34ac97ead83, type: 2}
   enemyChance: .300000012
