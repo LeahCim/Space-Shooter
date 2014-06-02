@@ -4,7 +4,8 @@ using System.Collections;
 public class GameController : MonoBehaviour {
 
 	public GameObject asteroid;
-	public GameObject enemy;
+	public GameObject purpleEnemy;
+	public GameObject redEnemy;
 	public float enemyChance;
 
 	public Vector3 spawnValues;
@@ -65,7 +66,14 @@ public class GameController : MonoBehaviour {
 
 				if(Random.value < enemyChance)
 				{
-					hazard = enemy;
+					if(Random.value < 0.5)
+					{
+						hazard = purpleEnemy;
+					}
+					else
+					{
+						hazard = redEnemy;
+					}
 					spawnWait = enemySpawnWait;
 				}
 				else

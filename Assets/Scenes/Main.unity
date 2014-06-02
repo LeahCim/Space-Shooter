@@ -1724,7 +1724,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   asteroid: {fileID: 100002, guid: 683df649f881ef545ac0432f37ecdac8, type: 2}
-  enemy: {fileID: 100004, guid: fc527ef0ba5392041a3a4a07fe1321b2, type: 2}
+  purpleEnemy: {fileID: 100004, guid: fc527ef0ba5392041a3a4a07fe1321b2, type: 2}
+  redEnemy: {fileID: 100004, guid: f971eeefd90b73e4c98af34ac97ead83, type: 2}
   enemyChance: .300000012
   spawnValues: {x: 6, y: 0, z: 16}
   hazardCount: 10
