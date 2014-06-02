@@ -11,8 +11,10 @@ public class ProximitySensor : MonoBehaviour {
 	}
 
 	void OnTriggerEnter(Collider other) {
-		if(other.tag == "Boundary" || other.tag == "Enemy" ||
-		   other.tag == "EnemyBolt" || other.tag == "ProximitySensor")
+		if(other.tag == "EnemyBolt" ||
+		   other.tag == "ProximitySensor" ||
+		   other.tag == "Boundary" ||
+		   transform.parent == other.transform)
 		{
 			return;
 		}
