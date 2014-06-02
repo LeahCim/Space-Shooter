@@ -52,7 +52,7 @@ GameObject:
   - 82: {fileID: 8200000}
   - 75: {fileID: 7500000}
   m_Layer: 0
-  m_Name: Enemy
+  m_Name: PurpleEnemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
