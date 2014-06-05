@@ -1718,6 +1718,7 @@ MonoBehaviour:
   spawnValues: {x: 6, y: 0, z: 16}
   hazardCount: 10
   asteroidSpawnWait: .300000012
+  enemyPreSpawnWait: .300000012
   enemySpawnWait: 1
   startWait: 1
   waveWait: 2
