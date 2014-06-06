@@ -53,12 +53,11 @@ public class EnemyController : MonoBehaviour
 		else
 		{
 			FollowPlayer();
-		}
-
-		if(Time.time > nextRandomMove)
-		{
-			nextRandomMove = Time.time + randomMoveDelay;
-			rigidbody.velocity += Random.insideUnitSphere * randomMoveDistance;
+			if(Time.time > nextRandomMove)
+			{
+				nextRandomMove = Time.time + randomMoveDelay;
+				rigidbody.velocity += Random.insideUnitSphere * randomMoveDistance;
+			}
 		}
 
 		rigidbody.position = new Vector3
